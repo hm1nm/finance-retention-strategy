@@ -5,6 +5,7 @@
 - 데이터 구성 : 회원, 신용, 승인매출, 청구, 입금, 마케팅 정보 등 총 14개 시트 
 - 데이터 형태 : 발급회원번호를 결합 키(KEY)로 활용하는 구조화된 엑셀(.xlsx) 데이터 
 - 데이터 특징 : 개인정보 비식별 조치 완료 및 고객의 인구통계학적 특성과 시계열적 소비 행태를 포함한 패널 데이터 
+- 데이터 파일 다운로드 : <a href="https://docs.google.com/spreadsheets/d/1rr7hAPLdwc-YxyMmThmLUJcuAj52GAy_Djupb7SZURg/edit?usp=drive_link">파일 다운로드</a>
 
 # 문제 정의 및 가설 설정 
 - 현황 분석 : 기존의 사후적 이탈(해지 후 대응) 관리 체계의 한계점 도출 
