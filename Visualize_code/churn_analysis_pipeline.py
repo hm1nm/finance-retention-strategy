@@ -225,7 +225,7 @@ def analyze_rolling_churn(file_path):
                     break 
             
             results.append({
-                'Cust_ID': cust_id,
+                COL_ID: cust_id,
                 'Churn_Duration_Months': consecutive_months
             })
 
@@ -280,7 +280,7 @@ def analyze_and_extract_features_v2(input_data):
         is_churn = check_churn_condition(scores)
         
         row_data = scores.to_dict()
-        row_data['Cust_ID'] = cust_id
+        row_data[COL_ID] = cust_id
         row_data['Target'] = is_churn
         results.append(row_data)
         
@@ -345,7 +345,7 @@ def run_rf_simulation(data, drop_cols=LEAKAGE_COLS):
     
     # 전처리
     data_clean = data.replace([np.inf, -np.inf], np.nan).fillna(0)
-    targets_to_drop = ['Cust_ID', 'Target'] + drop_cols
+    targets_to_drop = [COL_ID, 'Target'] + drop_cols
     X_temp = data_clean.drop(columns=targets_to_drop, errors='ignore')
     y = data_clean['Target']
     X = X_temp.select_dtypes(include=['number'])
@@ -376,7 +376,7 @@ def run_xgboost_simulation(data, drop_cols=LEAKAGE_COLS):
     print(f"[Info] XGBoost 학습 시작")
     
     data_clean = data.replace([np.inf, -np.inf], np.nan).fillna(0)
-    targets_to_drop = ['Cust_ID', 'Target'] + drop_cols
+    targets_to_drop = [COL_ID, 'Target'] + drop_cols
     X_temp = data_clean.drop(columns=targets_to_drop, errors='ignore')
     y = data_clean['Target']
     X = X_temp.select_dtypes(include=['number'])
@@ -412,7 +412,7 @@ def run_lightgbm_simulation(data, drop_cols=LEAKAGE_COLS):
     print(f"[Info] LightGBM 학습 시작")
     
     data_clean = data.replace([np.inf, -np.inf], np.nan).fillna(0)
-    targets_to_drop = ['Cust_ID', 'Target'] + drop_cols
+    targets_to_drop = [COL_ID, 'Target'] + drop_cols
     X_temp = data_clean.drop(columns=targets_to_drop, errors='ignore')
     y = data_clean['Target']
     X = X_temp.select_dtypes(include=['number'])
@@ -451,7 +451,7 @@ def compare_existing_models(models_dict, data, drop_cols=LEAKAGE_COLS):
     
     # Test set 준비 (동일한 Random State 사용)
     data_clean = data.replace([np.inf, -np.inf], np.nan).fillna(0)
-    targets_to_drop = ['Cust_ID', 'Target'] + drop_cols
+    targets_to_drop = [COL_ID, 'Target'] + drop_cols
     X_temp = data_clean.drop(columns=targets_to_drop, errors='ignore')
     y = data_clean['Target']
     X = X_temp.select_dtypes(include=['number'])
@@ -488,7 +488,7 @@ def compare_existing_models(models_dict, data, drop_cols=LEAKAGE_COLS):
 # =============================================================================
 if __name__ == "__main__":
     # 데이터 경로 설정 (필요시 수정)
-    TARGET_FILE_PATH = "Final_merged_all_data.csv" # 예시 파일명
+    TARGET_FILE_PATH = "260108/general_combined_part0.csv" # 예시 파일명
     
     if os.path.exists(TARGET_FILE_PATH):
         # 1. 데이터 로드 및 점수 생성
