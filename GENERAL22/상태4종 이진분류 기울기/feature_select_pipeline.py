@@ -51,9 +51,6 @@ COL_DELINQ = '회원여부_연체'          # 기존: 당월_연체_여부 -> �
 COL_SPEND_R12M = '이용금액_신용_R12M' # 최근 1년간 이용금액
 COL_COUNT_R12M = '이용건수_신용_R12M' # 최근 1년간 이용건수
 
-# File Paths
-DATA_FILE_PATH = './260108/general_combined_part1.csv'
-
 
 # ========================================================================================
 # 2. Utility Functions
@@ -421,6 +418,10 @@ def train_eval_xgboost_shap(df_train, target_col='Target'):
 # ========================================================================================
 # 6. Main Execution
 # ========================================================================================
+
+# File Paths
+DATA_FILE_PATH = './260108/general_combined_part1.csv'
+
 if __name__ == "__main__":
     print("🚀 Starting Feature Selection & Visualization Pipeline...")
     
