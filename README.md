@@ -131,3 +131,6 @@
 
 # XGB_혼돈행렬 확인 
 <img src="./정리/General_XGB_혼돈행렬.png" width="500" height="500">
+
+# Streamlit 대시보드 구현
+https://github.com/user-attachments/assets/62ca1275-9832-4091-8be6-a2ecdb5a751d
